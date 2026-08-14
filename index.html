@@ -1,1 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>BooksWagon PDF Label Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>BOOKSWAGON PDF LABEL GENERATOR</h1>
+        <p class="subtitle">PO Based Box Label Generator</p>
+
+        <!-- PO INPUT -->
+        <section class="section">
+
+            <h2>1. PO INPUT</h2>
+
+            <div class="input-mode">
+                <label>
+                    <input type="radio" name="inputMode" value="manual" checked>
+                    Manual Entry
+                </label>
+
+                <label>
+                    <input type="radio" name="inputMode" value="excel">
+                    Excel Upload
+                </label>
+            </div>
+
+            <div id="manualInput">
+
+                <div class="po-grid">
+
+                    <input type="text" class="po-input" placeholder="PO 1">
+                    <input type="text" class="po-input" placeholder="PO 2">
+                    <input type="text" class="po-input" placeholder="PO 3">
+                    <input type="text" class="po-input" placeholder="PO 4">
+                    <input type="text" class="po-input" placeholder="PO 5">
+
+                    <input type="text" class="po-input" placeholder="PO 6">
+                    <input type="text" class="po-input" placeholder="PO 7">
+                    <input type="text" class="po-input" placeholder="PO 8">
+                    <input type="text" class="po-input" placeholder="PO 9">
+                    <input type="text" class="po-input" placeholder="PO 10">
+
+                </div>
+
+            </div>
+
+            <div id="excelInput" class="hidden">
+
+                <label for="excelFile">Upload Excel File</label>
+
+                <input
+                    type="file"
+                    id="excelFile"
+                    accept=".xlsx,.xls,.csv"
+                >
+
+                <p class="help-text">
+                    Excel file should contain only PO numbers.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOX SETTINGS -->
+        <section class="section">
+
+            <h2>2. BOX SETTINGS</h2>
+
+            <div class="settings-grid">
+
+                <div>
+                    <label for="startBox">Start Box</label>
+
+                    <input
+                        type="number"
+                        id="startBox"
+                        value="1"
+                        min="1"
+                    >
+                </div>
+
+                <div>
+                    <label for="endBox">End Box</label>
+
+                    <input
+                        type="number"
+                        id="endBox"
+                        value="10"
+                        min="1"
+                    >
+                </div>
+
+                <div>
+                    <label for="repeatCount">Repeat Per Box</label>
+
+                    <select id="repeatCount">
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+
+                    </select>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGE SIZE -->
+        <section class="section">
+
+            <h2>3. PAGE SIZE</h2>
+
+            <select id="pageSize">
+
+                <option value="4x6">4 × 6 inch</option>
+                <option value="a4">A4</option>
+                <option value="70x35">70 × 35 mm</option>
+                <option value="custom">Custom</option>
+
+            </select>
+
+
+            <div id="customSize" class="custom-size hidden">
+
+                <div>
+                    <label for="customWidth">
+                        Width (mm)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="customWidth"
+                        min="1"
+                    >
+                </div>
+
+                <div>
+                    <label for="customHeight">
+                        Height (mm)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="customHeight"
+                        min="1"
+                    >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PREVIEW -->
+        <section class="section">
+
+            <h2>4. PREVIEW</h2>
+
+            <div id="previewArea">
+
+                <p>
+                    Your label preview will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTION BUTTONS -->
+        <section class="actions">
+
+            <button
+                type="button"
+                id="resetBtn"
+                class="reset-btn"
+            >
+                RESET
+            </button>
+
+            <button
+                type="button"
+                id="generateBtn"
+                class="generate-btn"
+            >
+                GENERATE PDF
+            </button>
+
+        </section>
+
+
+        <!-- STATUS -->
+        <div id="status" class="status">
+            Ready
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
